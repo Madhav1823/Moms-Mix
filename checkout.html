@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Mom's Mix</title>
+  <meta name="description" content="Place your Mom's Mix order — fill in your details and we'll confirm via WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .checkout-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .checkout-summary-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 100px;
+    }
+    .checkout-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .checkout-item:last-child { border-bottom: none; }
+    .checkout-item-img {
+      width: 52px; height: 52px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .checkout-item-img img { width: 100%; height: 100%; object-fit: cover; }
+    .checkout-item-name { font-size: 0.875rem; font-weight: 600; }
+    .checkout-item-meta { font-size: 0.78rem; color: var(--text-light); }
+    .checkout-item-price { margin-left: auto; font-weight: 700; color: var(--accent); font-size: 0.9rem; white-space: nowrap; }
+    .checkout-total-row {
+      display: flex; justify-content: space-between;
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+    }
+    .checkout-total-row.grand {
+      font-size: 1.1rem; font-weight: 700;
+      border-top: 2px solid var(--border);
+      padding-top: 0.85rem; margin-top: 0.25rem;
+    }
+    .checkout-empty {
+      text-align: center; padding: 3rem 1rem;
+    }
+    .section-divider {
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); margin: 1.5rem 0 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-divider::before, .section-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .success-icon { font-size: 4rem; margin-bottom: 1rem; }
+    @media (max-width: 768px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+      .checkout-summary-card { position: static; order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header-placeholder"></div>
+
+  <div class="page-header">
+    <div class="container">
+      <span class="section-label">Almost there</span>
+      <h1>Checkout</h1>
+      <p>Fill in your details and your order will be sent directly to us on WhatsApp for confirmation.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Empty cart state -->
+      <div id="checkout-empty" class="checkout-empty" style="display:none;">
+        <div style="font-size:4rem;margin-bottom:1rem;">🛒</div>
+        <h2>Your cart is empty</h2>
+        <p style="margin:0.75rem 0 1.5rem;">Add some products before checking out.</p>
+        <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+      </div>
+
+      <!-- Checkout content -->
+      <div class="checkout-grid" id="checkout-content">
+
+        <!-- Left: Customer Details Form -->
+        <div class="checkout-form-card">
+          <h2 style="margin-bottom:1.5rem;">Your Details</h2>
+
+          <form id="checkout-form" novalidate>
+
+            <div class="section-divider">Contact Information</div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="co-name">Full Name *</label>
+                <input type="text" id="co-name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="co-phone">WhatsApp / Phone *</label>
+                <input type="tel" id="co-phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="co-email">Email Address</label>
+              <input type="email" id="co-email" name="email" placeholder="you@example.com">
+            </div>
+
+            <div class="section-divider">Delivery Address</div>
+
+            <div class="form-group">
+              <label for="co-address">Street Address *</label>
+              <input type="text" id="co-address" name="address" placeholder="House / Flat No., Street Name" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="co-city">City *</label>
+                <input type="text" id="co-city" name="city" placeholder="City" required>
+              </div>
+              <div class="form-group">
+                <label for="co-state">State</label>
+                <input type="text" id="co-state" name="state" placeholder="State">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="co-pincode">Pincode *</label>
+                <input type="text" id="co-pincode" name="pincode" placeholder="6-digit pincode" maxlength="6" required>
+              </div>
+              <div class="form-group">
+                <label for="co-landmark">Landmark (optional)</label>
+                <input type="text" id="co-landmark" name="landmark" placeholder="Near / Opp.">
+              </div>
+            </div>
+
+            <div class="section-divider">Payment &amp; Notes</div>
+
+            <div class="form-group">
+              <label for="co-payment">Preferred Payment Method</label>
+              <select id="co-payment" name="payment">
+                <option value="UPI">UPI (Google Pay / PhonePe / Paytm)</option>
+                <option value="Bank Transfer">Bank Transfer / NEFT</option>
+                <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                <option value="WhatsApp Confirm">Confirm over WhatsApp</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="co-notes">Special Instructions (optional)</label>
+              <textarea id="co-notes" name="notes" placeholder="Any delivery instructions or special requests…" style="min-height:80px;"></textarea>
+            </div>
+
+            <!-- Error message -->
+            <div id="form-error" style="display:none;background:#FEE;border:1px solid #FCC;border-radius:8px;padding:0.75rem 1rem;font-size:0.875rem;color:#C00;margin-bottom:1rem;">
+              ⚠️ Please fill in all required fields before placing your order.
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" id="place-order-btn">
+              💬 Place Order via WhatsApp
+            </button>
+
+            <p style="text-align:center;font-size:0.78rem;color:var(--text-light);margin-top:0.75rem;">
+              Your order details will be sent to our WhatsApp (+91 77022 60614) for confirmation. We'll confirm your order and share payment details within 1–2 hours.
+            </p>
+
+          </form>
+
+          <!-- Success screen (shown after submit) -->
+          <div class="success-screen" id="success-screen">
+            <div class="success-icon">✅</div>
+            <h2>Order Sent!</h2>
+            <p style="max-width:380px;margin:0.75rem auto 1.5rem;">Your order has been sent to our WhatsApp. We'll confirm it and get back to you shortly at <strong id="success-phone"></strong>.</p>
+            <a href="shop.html" class="btn btn-primary btn-lg">Continue Shopping</a>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div class="checkout-summary-card">
+          <h3 style="margin-bottom:1.25rem;">Order Summary</h3>
+
+          <div id="checkout-items-list"></div>
+
+          <div style="margin-top:1rem;">
+            <div class="checkout-total-row">
+              <span>Subtotal</span>
+              <span id="co-subtotal">₹0</span>
+            </div>
+            <div class="checkout-total-row">
+              <span>Shipping</span>
+              <span id="co-shipping">To be confirmed</span>
+            </div>
+            <div class="checkout-total-row grand">
+              <span>Total</span>
+              <span id="co-total">₹0</span>
+            </div>
+          </div>
+
+          <div style="background:var(--cream);border-radius:var(--radius);padding:0.85rem;margin-top:1.25rem;font-size:0.78rem;color:var(--text-light);">
+            🚚 Free delivery on orders above ₹499 within Hyderabad. Outstation rates confirmed at order time.
+          </div>
+
+          <div style="margin-top:1rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-direction:column;gap:0.4rem;">
+            <span>🔖 FSSAI Lic. No.: 1362401200876</span>
+            <span>🌿 No Added Preservatives</span>
+            <span>📞 Support: +91 77022 60614</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+  (function() {
+
+    const WHATSAPP_NUMBER = '917702260614';
+
+    const productImages = {
+      'idli':        'images/idli.png',
+      'dosa':        'images/Dosa.png',
+      'dibba-rotte': 'images/dibba-rotte.webp',
+      'punugulu':    'images/punugulu.webp',
+      'gare':        'images/gare.jpg'
+    };
+
+    function getCart() {
+      return JSON.parse(localStorage.getItem('mm_cart') || '[]');
+    }
+
+    function renderSummary() {
+      const cart = getCart();
+      const listEl    = document.getElementById('checkout-items-list');
+      const subtotalEl = document.getElementById('co-subtotal');
+      const totalEl   = document.getElementById('co-total');
+      const shippingEl = document.getElementById('co-shipping');
+      const emptyEl   = document.getElementById('checkout-empty');
+      const contentEl = document.getElementById('checkout-content');
+
+      if (!cart.length) {
+        if (emptyEl)   emptyEl.style.display   = 'block';
+        if (contentEl) contentEl.style.display = 'none';
+        return;
+      }
+
+      if (emptyEl)   emptyEl.style.display   = 'none';
+      if (contentEl) contentEl.style.display = 'grid';
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const shipping = subtotal >= 499 ? 'FREE' : 'To be confirmed';
+
+      listEl.innerHTML = cart.map(item => {
+        const imgSrc = productImages[item.id] || '';
+        return `
+          <div class="checkout-item">
+            <div class="checkout-item-img">
+              ${imgSrc ? `<img src="${imgSrc}" alt="${item.name}">` : item.emoji}
+            </div>
+            <div>
+              <div class="checkout-item-name">${item.name}</div>
+              <div class="checkout-item-meta">${item.weight} × ${item.qty}</div>
+            </div>
+            <div class="checkout-item-price">₹${(item.price * item.qty)}</div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = `₹${subtotal}`;
+      shippingEl.textContent = shipping;
+      totalEl.textContent    = `₹${subtotal}`;
+    }
+
+    function buildWhatsAppMessage(formData, cart) {
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+      let itemLines = cart.map(i =>
+        `  • ${i.name} (${i.weight}) x${i.qty} = ₹${i.price * i.qty}`
+      ).join('\n');
+
+      const address = [
+        formData.address,
+        formData.landmark ? `Near ${formData.landmark}` : '',
+        formData.city,
+        formData.state,
+        formData.pincode
+      ].filter(Boolean).join(', ');
+
+      const msg = [
+        `🛒 *New Order — Mom's Mix*`,
+        ``,
+        `👤 *Customer Details*`,
+        `Name: ${formData.name}`,
+        `Phone: ${formData.phone}`,
+        formData.email ? `Email: ${formData.email}` : '',
+        ``,
+        `📦 *Order Items*`,
+        itemLines,
+        ``,
+        `💰 *Order Total: ₹${subtotal}*`,
+        subtotal >= 499 ? `🚚 Eligible for FREE delivery` : `🚚 Shipping to be confirmed`,
+        ``,
+        `📍 *Delivery Address*`,
+        address,
+        ``,
+        `💳 *Payment Preference:* ${formData.payment}`,
+        formData.notes ? `\n📝 *Notes:* ${formData.notes}` : '',
+        ``,
+        `_Order placed from momsmixtraditions.com_`
+      ].filter(l => l !== undefined).join('\n');
+
+      return msg;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderSummary();
+
+      const form = document.getElementById('checkout-form');
+      const errorEl = document.getElementById('form-error');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const cart = getCart();
+        if (!cart.length) return;
+
+        // Validate required fields
+        const name     = document.getElementById('co-name').value.trim();
+        const phone    = document.getElementById('co-phone').value.trim();
+        const address  = document.getElementById('co-address').value.trim();
+        const city     = document.getElementById('co-city').value.trim();
+        const pincode  = document.getElementById('co-pincode').value.trim();
+
+        if (!name || !phone || !address || !city || !pincode) {
+          errorEl.style.display = 'block';
+          errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        errorEl.style.display = 'none';
+
+        const formData = {
+          name,
+          phone,
+          email:    document.getElementById('co-email').value.trim(),
+          address,
+          city,
+          state:    document.getElementById('co-state').value.trim(),
+          pincode,
+          landmark: document.getElementById('co-landmark').value.trim(),
+          payment:  document.getElementById('co-payment').value,
+          notes:    document.getElementById('co-notes').value.trim()
+        };
+
+        const message = buildWhatsAppMessage(formData, cart);
+        const encoded = encodeURIComponent(message);
+        const waURL   = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+        // Clear cart
+        localStorage.removeItem('mm_cart');
+
+        // Update cart badge to 0
+        document.querySelectorAll('.cart-count').forEach(el => {
+          el.textContent = '0';
+          el.style.display = 'none';
+        });
+
+        // Show success screen
+        form.style.display = 'none';
+        const successScreen = document.getElementById('success-screen');
+        successScreen.style.display = 'block';
+        document.getElementById('success-phone').textContent = phone;
+
+        // Open WhatsApp
+        window.open(waURL, '_blank');
+      });
+    });
+
+  })();
+  </script>
+</body>
+</html>

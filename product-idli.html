@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idli Premix 500g — Mom's Mix</title>
+  <meta name="description" content="Mom's Mix Idli Premix — made from split black gram, soaked and dehusked using traditional methods. No added preservatives. ₹250 for 500g.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-product-id="idli">
+
+  <div id="site-header-placeholder"></div>
+
+  <section class="product-detail">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li>Idli Premix</li>
+        </ol>
+      </nav>
+
+      <div class="product-detail-grid">
+
+        <!-- Gallery -->
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img src="images/idli.png" alt="Mom's Mix Idli Premix — soft steamed idlis with coconut chutney" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;">
+            <div style="aspect-ratio:1;border-radius:8px;overflow:hidden;border:2px solid var(--accent);cursor:pointer;">
+              <img src="images/idli.png" alt="Idli Premix front" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div style="aspect-ratio:1;background:linear-gradient(135deg,var(--cream-dark),var(--pink));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;">🫙</div>
+            <div style="aspect-ratio:1;background:linear-gradient(135deg,var(--pink),var(--mint));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;">🥣</div>
+            <div style="aspect-ratio:1;background:linear-gradient(135deg,var(--mint),var(--pink));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;">🌾</div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <span class="product-info-badge">🌿 No Added Preservatives</span>
+          <h1>Idli Premix</h1>
+          <p class="product-info-sub">Traditional South Indian Soft Idli Mix · Net Wt. 500g</p>
+
+          <div class="product-info-price">₹250 <small>/ 500g pack</small></div>
+
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+            <span class="badge badge-green">✓ No Preservatives</span>
+            <span class="badge badge-pink">✓ Traditional Method</span>
+            <span class="badge badge-green">✓ FSSAI Licensed</span>
+          </div>
+
+          <p>Fluffy, soft idlis made at home the traditional way. Our Idli Premix uses split black gram that is soaked, cleaned, and dehusked using age-old methods — giving you the authentic taste and texture you grew up with.</p>
+
+          <div class="product-info-divider"></div>
+
+          <!-- Qty + Add to Cart -->
+          <div class="qty-selector">
+            <label for="product-qty">Quantity:</label>
+            <button class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+            <input class="qty-input" type="number" id="product-qty" value="1" min="1" max="50" aria-label="Quantity">
+            <button class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+
+          <div class="product-action-btns">
+            <button class="btn btn-primary btn-lg" id="add-to-cart-btn">🛒 Add to Cart</button>
+            <button class="btn btn-outline btn-lg" id="buy-now-btn">Buy Now</button>
+          </div>
+
+          <!-- WhatsApp Order -->
+          <a href="https://wa.me/917702260614?text=Hi!%20I'd%20like%20to%20order%20Idli%20Premix%20from%20Mom's%20Mix." target="_blank" rel="noopener"
+             class="btn btn-mint btn-full" style="margin-bottom:1.25rem;">
+            💬 Order via WhatsApp
+          </a>
+
+          <div class="product-info-divider"></div>
+
+          <!-- Product Meta -->
+          <ul class="product-meta-list">
+            <li><strong>Pack Size</strong><span>500g</span></li>
+            <li><strong>Price</strong><span>₹250</span></li>
+            <li><strong>Key Ingredient</strong><span>Split Black Gram (Urad Dal)</span></li>
+            <li><strong>Shelf Life</strong><span>To be updated</span></li>
+            <li><strong>Storage</strong><span>Store in a cool, dry place. Refrigerate after opening.</span></li>
+            <li><strong>Manufactured by</strong><span>Mom's Mix, Hyderabad – 500035</span></li>
+            <li><strong>FSSAI Lic. No.</strong><span>1362401200876</span></li>
+            <li><strong>Shipping</strong><span>Pan-India. Free delivery above ₹499.</span></li>
+          </ul>
+
+          <!-- Tabs -->
+          <div class="product-tabs">
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab="tab-prep">Preparation</button>
+              <button class="tab-btn" data-tab="tab-ingredients">Ingredients</button>
+              <button class="tab-btn" data-tab="tab-nutrition">Nutrition</button>
+              <button class="tab-btn" data-tab="tab-shipping">Shipping</button>
+            </div>
+
+            <div class="tab-content active" id="tab-prep">
+              <ol style="padding-left:1.25rem;">
+                <li style="margin-bottom:0.5rem;font-size:0.9rem;color:var(--text-light);">Take 1 measure of Mom's Mix Idli Mix.</li>
+                <li style="margin-bottom:0.5rem;font-size:0.9rem;color:var(--text-light);">Add 1¼ measures of water.</li>
+                <li style="margin-bottom:0.5rem;font-size:0.9rem;color:var(--text-light);">Add salt to taste and mix into a smooth batter.</li>
+                <li style="margin-bottom:0.5rem;font-size:0.9rem;color:var(--text-light);">Allow the batter to ferment overnight or for 10–12 hours.</li>
+                <li style="font-size:0.9rem;color:var(--text-light);">Pour into greased idli moulds and steam for 10–12 minutes.</li>
+              </ol>
+              <p style="margin-top:1rem;font-size:0.82rem;background:var(--cream);padding:0.75rem;border-radius:8px;">
+                💡 <strong>Tip:</strong> Ferment in a warm spot for best results. The batter should roughly double in volume.
+              </p>
+            </div>
+
+            <div class="tab-content" id="tab-ingredients">
+              <p><strong>Key Ingredients:</strong> Split Black Gram (Urad Dal), Rice, Fenugreek.</p>
+              <p style="margin-top:0.5rem;font-size:0.82rem;background:var(--cream);padding:0.75rem;border-radius:8px;">
+                ℹ️ Exact ingredient proportions and complete declaration to be updated once final product formulation is confirmed.
+              </p>
+            </div>
+
+            <div class="tab-content" id="tab-nutrition">
+              <p>Nutritional information will be updated once lab-verified data is available.</p>
+              <p style="font-size:0.82rem;background:var(--cream);padding:0.75rem;border-radius:8px;margin-top:0.75rem;">
+                ℹ️ Mom's Mix products contain no added preservatives, artificial colours, or flavourings.
+              </p>
+            </div>
+
+            <div class="tab-content" id="tab-shipping">
+              <ul>
+                <li>Pan-India shipping via trusted courier partners.</li>
+                <li>Free delivery on orders above ₹499.</li>
+                <li>Orders dispatched within 1–2 business days.</li>
+                <li>Estimated delivery: 3–7 business days depending on location.</li>
+                <li>For bulk/wholesale orders, <a href="wholesale.html" style="color:var(--accent);">contact us here</a>.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="related-products">
+    <div class="container">
+      <h2 style="margin-bottom:1.5rem;">You Might Also Like</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-card-image"><img src="images/Dosa.png" alt="Dosa Premix" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="product-card-body">
+            <h3 class="product-name">Dosa Premix</h3>
+            <p class="product-weight">500g</p>
+            <div class="product-price">₹220</div>
+            <div class="product-card-footer">
+              <a href="product-dosa.html" class="btn btn-outline btn-sm">View</a>
+              <button class="btn btn-primary btn-sm" data-add-product="dosa">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-image"><img src="images/dibba-rotte.webp" alt="Dibba Rotte Premix" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="product-card-body">
+            <h3 class="product-name">Dibba Rotte Premix</h3>
+            <p class="product-weight">500g</p>
+            <div class="product-price">₹250</div>
+            <div class="product-card-footer">
+              <a href="product-dibba-rotte.html" class="btn btn-outline btn-sm">View</a>
+              <button class="btn btn-primary btn-sm" data-add-product="dibba-rotte">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-image"><img src="images/gare.jpg" alt="Gare Premix" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="product-card-body">
+            <h3 class="product-name">Gare Premix</h3>
+            <p class="product-weight">500g</p>
+            <div class="product-price">₹280</div>
+            <div class="product-card-footer">
+              <a href="product-gare.html" class="btn btn-outline btn-sm">View</a>
+              <button class="btn btn-primary btn-sm" data-add-product="gare">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

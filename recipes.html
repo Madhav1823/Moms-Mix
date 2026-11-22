@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes — Mom's Mix</title>
+  <meta name="description" content="Traditional South Indian recipes using Mom's Mix premixes — Idli, Dosa, Dibba Rotte, Punugulu, and Gare.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .recipe-detail-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .recipe-detail-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+    }
+    .recipe-detail-visual {
+      background: linear-gradient(135deg, var(--mint) 0%, var(--cream-dark) 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      min-height: 220px;
+    }
+    .recipe-emoji-large { font-size: 5rem; margin-bottom: 0.5rem; }
+    .recipe-detail-meta {
+      padding: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .recipe-detail-meta h2 { margin-bottom: 0.4rem; }
+    .recipe-stats {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    .recipe-stat { text-align: center; }
+    .recipe-stat strong { display: block; font-size: 1.1rem; color: var(--accent); }
+    .recipe-stat span   { font-size: 0.78rem; color: var(--text-light); }
+    .recipe-detail-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .recipe-ingredients, .recipe-method {
+      padding: 2rem;
+    }
+    .recipe-ingredients { border-right: 1px solid var(--border); }
+    .recipe-ingredients h4, .recipe-method h4 { margin-bottom: 1rem; }
+    .ingredient-list { padding-left: 0; }
+    .ingredient-list li {
+      display: flex; align-items: baseline; gap: 0.5rem;
+      padding: 0.4rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.875rem; color: var(--text-light); list-style: none;
+    }
+    .ingredient-list li:last-child { border-bottom: none; }
+    .ingredient-list li::before { content: "•"; color: var(--accent); font-size: 0.6rem; flex-shrink: 0; }
+    .method-list { counter-reset: step; padding-left: 0; }
+    .method-list li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.875rem; color: var(--text-light); list-style: none;
+    }
+    .method-list li:last-child { border-bottom: none; }
+    .method-num {
+      min-width: 24px; height: 24px;
+      background: var(--accent); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .recipe-serving-tip {
+      background: var(--cream);
+      border-left: 4px solid var(--mint-dark);
+      padding: 0.85rem 1rem;
+      font-size: 0.875rem;
+      margin: 0 2rem 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    @media (max-width: 768px) {
+      .recipe-detail-header  { grid-template-columns: 1fr; }
+      .recipe-detail-body    { grid-template-columns: 1fr; }
+      .recipe-ingredients    { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header-placeholder"></div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <span class="section-label">In the Kitchen</span>
+      <h1>Recipes</h1>
+      <p>Traditional South Indian breakfast recipes using Mom's Mix premixes — simple, authentic, and delicious every time.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- ===== IDLI ===== -->
+      <div class="recipe-detail-card">
+        <div class="recipe-detail-header">
+          <div class="recipe-detail-visual" style="background:linear-gradient(135deg,var(--mint) 0%,#C8E6D4 100%);">
+            <div class="recipe-emoji-large">🍚</div>
+            <h3 style="color:var(--text);margin:0;">Soft Idli</h3>
+            <span class="badge badge-green" style="margin-top:0.5rem;">Steamed</span>
+          </div>
+          <div class="recipe-detail-meta">
+            <h2>Classic Idli</h2>
+            <p>Pillowy, steamed rice cakes — the quintessential South Indian breakfast. Light, healthy, and endlessly comforting.</p>
+            <div class="recipe-stats">
+              <div class="recipe-stat"><strong>12–15</strong><span>Yield</span></div>
+              <div class="recipe-stat"><strong>10 min</strong><span>Prep</span></div>
+              <div class="recipe-stat"><strong>12 min</strong><span>Cook</span></div>
+              <div class="recipe-stat"><strong>10–12 hrs</strong><span>Fermentation</span></div>
+            </div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+              <a href="product-idli.html" class="btn btn-primary btn-sm">Buy Idli Premix — ₹250</a>
+              <a href="preparation.html#idli" class="btn btn-outline btn-sm">Full Prep Guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail-body">
+          <div class="recipe-ingredients">
+            <h4>Ingredients</h4>
+            <ul class="ingredient-list">
+              <li>1 measure Mom's Mix Idli Premix</li>
+              <li>1¼ measures water</li>
+              <li>Salt to taste</li>
+              <li>Oil or ghee for greasing moulds</li>
+            </ul>
+            <p style="font-size:0.82rem;margin-top:1rem;color:var(--text-light);">Serve with: Coconut chutney, sambar, tomato chutney, or pickle.</p>
+          </div>
+          <div class="recipe-method">
+            <h4>Method</h4>
+            <ol class="method-list">
+              <li><div class="method-num">1</div><span>Combine the premix with 1¼ measures of water and salt. Mix into a smooth batter.</span></li>
+              <li><div class="method-num">2</div><span>Ferment overnight or 10–12 hours in a warm spot.</span></li>
+              <li><div class="method-num">3</div><span>Lightly grease idli moulds with oil.</span></li>
+              <li><div class="method-num">4</div><span>Pour batter into moulds (fill ¾ full) and steam for 10–12 minutes.</span></li>
+              <li><div class="method-num">5</div><span>Rest for 2 minutes, then unmould with a wet spoon. Serve immediately.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="recipe-serving-tip">
+          🍽️ <strong>Serving Suggestion:</strong> Serve idlis hot with coconut chutney and a bowl of sambar. A smear of ghee on top adds wonderful flavour.
+        </div>
+      </div>
+
+      <!-- ===== DOSA ===== -->
+      <div class="recipe-detail-card">
+        <div class="recipe-detail-header">
+          <div class="recipe-detail-visual" style="background:linear-gradient(135deg,var(--pink) 0%,#F9C9D4 100%);">
+            <div class="recipe-emoji-large">🥞</div>
+            <h3 style="color:var(--text);margin:0;">Crispy Dosa</h3>
+            <span class="badge badge-pink" style="margin-top:0.5rem;">Pan-fried</span>
+          </div>
+          <div class="recipe-detail-meta">
+            <h2>Classic Dosa</h2>
+            <p>Thin, lacey, golden crepes with a satisfying crunch. One of the world's most beloved fermented foods.</p>
+            <div class="recipe-stats">
+              <div class="recipe-stat"><strong>6–8</strong><span>Yield</span></div>
+              <div class="recipe-stat"><strong>10 min</strong><span>Prep</span></div>
+              <div class="recipe-stat"><strong>20 min</strong><span>Cook</span></div>
+              <div class="recipe-stat"><strong>10–12 hrs</strong><span>Fermentation</span></div>
+            </div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+              <a href="product-dosa.html" class="btn btn-primary btn-sm">Buy Dosa Premix — ₹220</a>
+              <a href="preparation.html#dosa" class="btn btn-outline btn-sm">Full Prep Guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail-body">
+          <div class="recipe-ingredients">
+            <h4>Ingredients</h4>
+            <ul class="ingredient-list">
+              <li>1 measure Mom's Mix Dosa Premix</li>
+              <li>1½ measures water</li>
+              <li>Salt to taste</li>
+              <li>Oil for cooking</li>
+            </ul>
+            <p style="font-size:0.82rem;margin-top:1rem;color:var(--text-light);">Optional: Potato masala filling for masala dosa, or chopped onion for onion dosa.</p>
+          </div>
+          <div class="recipe-method">
+            <h4>Method</h4>
+            <ol class="method-list">
+              <li><div class="method-num">1</div><span>Mix premix with 1½ measures water and salt. Ferment 10–12 hours.</span></li>
+              <li><div class="method-num">2</div><span>Heat a tawa on medium-high until very hot. Sprinkle water — it should evaporate immediately.</span></li>
+              <li><div class="method-num">3</div><span>Pour a ladleful of batter and quickly spread in thin circles from the centre out.</span></li>
+              <li><div class="method-num">4</div><span>Drizzle oil around the edges. Cook until the base is golden and the edges lift.</span></li>
+              <li><div class="method-num">5</div><span>Fold into half or roll, and serve immediately.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="recipe-serving-tip">
+          🍽️ <strong>Serving Suggestion:</strong> Serve with coconut chutney, sambar, and tomato-onion chutney. For masala dosa, add spiced potato filling before folding.
+        </div>
+      </div>
+
+      <!-- ===== DIBBA ROTTE ===== -->
+      <div class="recipe-detail-card">
+        <div class="recipe-detail-header">
+          <div class="recipe-detail-visual" style="background:linear-gradient(135deg,var(--cream-dark) 0%,#E8D5B8 100%);">
+            <div class="recipe-emoji-large">🫓</div>
+            <h3 style="color:var(--text);margin:0;">Dibba Rotte</h3>
+            <span class="badge badge-green" style="margin-top:0.5rem;">Telugu Tradition</span>
+          </div>
+          <div class="recipe-detail-meta">
+            <h2>Dibba Rotte</h2>
+            <p>The beloved thick Telugu pan cake — uniquely crispy outside and soft-spongy inside. A comfort food like no other.</p>
+            <div class="recipe-stats">
+              <div class="recipe-stat"><strong>4–6</strong><span>Yield</span></div>
+              <div class="recipe-stat"><strong>10 min</strong><span>Prep</span></div>
+              <div class="recipe-stat"><strong>25 min</strong><span>Cook</span></div>
+              <div class="recipe-stat"><strong>10–12 hrs</strong><span>Fermentation</span></div>
+            </div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+              <a href="product-dibba-rotte.html" class="btn btn-primary btn-sm">Buy Dibba Rotte Premix — ₹250</a>
+              <a href="preparation.html#dibba" class="btn btn-outline btn-sm">Full Prep Guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail-body">
+          <div class="recipe-ingredients">
+            <h4>Ingredients</h4>
+            <ul class="ingredient-list">
+              <li>1 measure Mom's Mix Dibba Rotte Premix</li>
+              <li>1 measure water</li>
+              <li>Salt to taste</li>
+              <li>Oil or ghee for cooking</li>
+            </ul>
+            <p style="font-size:0.82rem;margin-top:1rem;color:var(--text-light);">Pairs beautifully with: Gongura pickle, coconut chutney, yoghurt, or avakaya (mango pickle).</p>
+          </div>
+          <div class="recipe-method">
+            <h4>Method</h4>
+            <ol class="method-list">
+              <li><div class="method-num">1</div><span>Mix premix with equal water and salt. Ferment overnight 10–12 hours.</span></li>
+              <li><div class="method-num">2</div><span>Heat a heavy-bottomed pan over medium heat. Add a generous drizzle of oil or ghee.</span></li>
+              <li><div class="method-num">3</div><span>Pour a thick layer of batter (about 1.5–2 cm). Cover and cook on medium-low heat.</span></li>
+              <li><div class="method-num">4</div><span>Cook until the bottom is deeply golden and the top is set (approx. 12–15 minutes).</span></li>
+              <li><div class="method-num">5</div><span>Flip carefully and cook the other side for 5–7 minutes until equally golden. Serve hot.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="recipe-serving-tip">
+          🍽️ <strong>Serving Suggestion:</strong> Traditionally served with gongura chutney or avakaya pickle and a side of yoghurt. Also pairs well with sambar.
+        </div>
+      </div>
+
+      <!-- ===== PUNUGULU ===== -->
+      <div class="recipe-detail-card">
+        <div class="recipe-detail-header">
+          <div class="recipe-detail-visual" style="background:linear-gradient(135deg,#FDE8A0 0%,#F5D87A 100%);">
+            <div class="recipe-emoji-large">🟡</div>
+            <h3 style="color:var(--text);margin:0;">Punugulu</h3>
+            <span class="badge badge-pink" style="margin-top:0.5rem;">Deep-fried</span>
+          </div>
+          <div class="recipe-detail-meta">
+            <h2>Punugulu</h2>
+            <p>Andhra's beloved street-food fritters — crispy, golden, and addictive. One mix, three possible dishes.</p>
+            <div class="recipe-stats">
+              <div class="recipe-stat"><strong>20–24</strong><span>Pieces</span></div>
+              <div class="recipe-stat"><strong>10 min</strong><span>Prep</span></div>
+              <div class="recipe-stat"><strong>20 min</strong><span>Cook</span></div>
+              <div class="recipe-stat"><strong>None</strong><span>Fermentation</span></div>
+            </div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+              <a href="product-punugulu.html" class="btn btn-primary btn-sm">Buy Punugulu Premix — ₹220</a>
+              <a href="preparation.html#punugulu" class="btn btn-outline btn-sm">Full Prep Guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail-body">
+          <div class="recipe-ingredients">
+            <h4>Ingredients</h4>
+            <ul class="ingredient-list">
+              <li>1 measure Mom's Mix Punugulu Premix</li>
+              <li>1 measure water</li>
+              <li>Salt to taste</li>
+              <li>1 medium onion, finely chopped</li>
+              <li>2–3 green chillies, finely chopped</li>
+              <li>Oil for deep frying</li>
+            </ul>
+            <p style="font-size:0.82rem;margin-top:1rem;color:var(--text-light);">Optional additions: curry leaves, ginger, coriander.</p>
+          </div>
+          <div class="recipe-method">
+            <h4>Method</h4>
+            <ol class="method-list">
+              <li><div class="method-num">1</div><span>Combine premix, water, salt, onion, and green chillies into a thick batter.</span></li>
+              <li><div class="method-num">2</div><span>Heat oil in a deep pan to medium-high. Test with a small drop of batter — it should rise quickly.</span></li>
+              <li><div class="method-num">3</div><span>Drop spoonfuls of batter into the hot oil carefully.</span></li>
+              <li><div class="method-num">4</div><span>Fry until golden brown all over, turning as needed. Drain on paper towel.</span></li>
+              <li><div class="method-num">5</div><span>Serve hot immediately with coconut chutney.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="recipe-serving-tip">
+          🍽️ <strong>Serving Suggestion:</strong> Best eaten fresh and hot with coconut chutney or tamarind chutney. For uttapam or gunta pongannalu variation, see the <a href="preparation.html" style="color:var(--accent);">Preparation Guide</a>.
+        </div>
+      </div>
+
+      <!-- ===== GARE ===== -->
+      <div class="recipe-detail-card">
+        <div class="recipe-detail-header">
+          <div class="recipe-detail-visual" style="background:linear-gradient(135deg,var(--accent) 0%,#F0A090 100%);">
+            <div class="recipe-emoji-large">🍩</div>
+            <h3 style="color:var(--white);margin:0;">Gare</h3>
+            <span class="badge badge-accent" style="margin-top:0.5rem;background:rgba(255,255,255,0.25);color:white;">Festive Favourite</span>
+          </div>
+          <div class="recipe-detail-meta">
+            <h2>Gare (Medu Vada)</h2>
+            <p>Fragrant, savory lentil fritters — the must-have at South Indian festivals, temple prasadams, and family feasts.</p>
+            <div class="recipe-stats">
+              <div class="recipe-stat"><strong>15–20</strong><span>Pieces</span></div>
+              <div class="recipe-stat"><strong>15 min</strong><span>Prep</span></div>
+              <div class="recipe-stat"><strong>25 min</strong><span>Cook</span></div>
+              <div class="recipe-stat"><strong>2 hrs</strong><span>Rest Time</span></div>
+            </div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+              <a href="product-gare.html" class="btn btn-primary btn-sm">Buy Gare Premix — ₹280</a>
+              <a href="preparation.html#gare" class="btn btn-outline btn-sm">Full Prep Guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail-body">
+          <div class="recipe-ingredients">
+            <h4>Ingredients</h4>
+            <ul class="ingredient-list">
+              <li>1 measure Mom's Mix Gare Premix</li>
+              <li>1 measure water</li>
+              <li>Salt to taste</li>
+              <li>1 tsp grated ginger</li>
+              <li>2–3 green chillies, finely chopped</li>
+              <li>1 medium onion, finely chopped</li>
+              <li>Handful of fresh coriander leaves, chopped</li>
+              <li>Oil for deep frying</li>
+            </ul>
+          </div>
+          <div class="recipe-method">
+            <h4>Method</h4>
+            <ol class="method-list">
+              <li><div class="method-num">1</div><span>Mix premix with water, salt, ginger, chilli, onion, and coriander into a thick batter.</span></li>
+              <li><div class="method-num">2</div><span>Rest the batter for 2 hours before shaping.</span></li>
+              <li><div class="method-num">3</div><span>Heat oil to medium. Wet hands to prevent sticking.</span></li>
+              <li><div class="method-num">4</div><span>Take a portion, flatten into a disc and make a hole in the centre. Slide carefully into the oil.</span></li>
+              <li><div class="method-num">5</div><span>Fry on medium heat, turning once, until golden brown and crispy on both sides.</span></li>
+              <li><div class="method-num">6</div><span>Drain and serve hot with coconut chutney and sambar.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="recipe-serving-tip">
+          🍽️ <strong>Serving Suggestion:</strong> The classic combination is gare + sambar + coconut chutney. Also wonderful as a festive snack on its own, or dunked in sambar.
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-banner">
+        <h2>Cook These Recipes at Home</h2>
+        <p>All five premixes. No preservatives. Ready to cook anytime you crave a taste of home.</p>
+        <div class="cta-btns">
+          <a href="shop.html" class="btn btn-white btn-lg">Shop All Premixes</a>
+          <a href="preparation.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.5);color:#fff;">Full Preparation Guide</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

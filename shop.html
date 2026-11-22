@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All — Mom's Mix</title>
+  <meta name="description" content="Browse all Mom's Mix traditional Indian breakfast premixes — Idli, Dosa, Dibba Rotte, Punugulu, and Gare. No added preservatives.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="site-header-placeholder"></div>
+
+  <!-- Page Header -->
+  <div class="shop-header">
+    <div class="container">
+      <span class="section-label">All Products</span>
+      <h1>Shop Mom's Mix</h1>
+      <p>Traditional Indian breakfast premixes — made with no added preservatives, just honest ingredients and authentic taste.</p>
+    </div>
+  </div>
+
+  <!-- Shop Content -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Toolbar -->
+      <div class="shop-toolbar">
+        <div class="shop-filter-tabs">
+          <button class="filter-tab active">All (5)</button>
+          <button class="filter-tab">Fermented</button>
+          <button class="filter-tab">South Indian</button>
+          <button class="filter-tab">Best Value</button>
+        </div>
+        <div class="shop-sort">
+          <select aria-label="Sort products">
+            <option>Sort: Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Name: A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+
+        <!-- Idli -->
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="images/idli.png" alt="Mom's Mix Idli Premix — soft steamed idlis" loading="lazy">
+            <span class="product-badge no-preserv">No Preservatives</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-name">Idli Premix</h3>
+            <p class="product-weight">500g · Soft &amp; Fluffy</p>
+            <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.6rem;">Made with split black gram — perfectly fermented idlis every time.</p>
+            <div class="product-price">₹250 <small>/ 500g</small></div>
+            <div class="product-card-footer">
+              <a href="product-idli.html" class="btn btn-outline btn-sm">View Details</a>
+              <button class="btn btn-primary btn-sm" data-add-product="idli">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dosa -->
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="images/Dosa.png" alt="Mom's Mix Dosa Premix — crispy golden dosa" loading="lazy">
+            <span class="product-badge no-preserv">No Preservatives</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-name">Dosa Premix</h3>
+            <p class="product-weight">500g · Crispy &amp; Golden</p>
+            <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.6rem;">Classic crispy dosa batter ready to pour — just add water and ferment.</p>
+            <div class="product-price">₹220 <small>/ 500g</small></div>
+            <div class="product-card-footer">
+              <a href="product-dosa.html" class="btn btn-outline btn-sm">View Details</a>
+              <button class="btn btn-primary btn-sm" data-add-product="dosa">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dibba Rotte -->
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="images/dibba-rotte.webp" alt="Mom's Mix Dibba Rotte Premix — thick Telugu pan cake" loading="lazy">
+            <span class="product-badge no-preserv">No Preservatives</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-name">Dibba Rotte Premix</h3>
+            <p class="product-weight">500g · Traditional Telugu</p>
+            <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.6rem;">Beloved thick pan cake of Telugu cuisine — crispy outside, soft inside.</p>
+            <div class="product-price">₹250 <small>/ 500g</small></div>
+            <div class="product-card-footer">
+              <a href="product-dibba-rotte.html" class="btn btn-outline btn-sm">View Details</a>
+              <button class="btn btn-primary btn-sm" data-add-product="dibba-rotte">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Punugulu -->
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="images/punugulu.webp" alt="Mom's Mix Punugulu Premix — Andhra-style golden fritters" loading="lazy">
+            <span class="product-badge no-preserv">No Preservatives</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-name">Punugulu Premix</h3>
+            <p class="product-weight">500g · Street-food Style</p>
+            <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.6rem;">Andhra-style fritters — also makes uttapam &amp; gunta pongannalu.</p>
+            <div class="product-price">₹220 <small>/ 500g</small></div>
+            <div class="product-card-footer">
+              <a href="product-punugulu.html" class="btn btn-outline btn-sm">View Details</a>
+              <button class="btn btn-primary btn-sm" data-add-product="punugulu">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gare -->
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="images/gare.jpg" alt="Mom's Mix Gare Premix — festive savory lentil fritters" loading="lazy">
+            <span class="product-badge" style="background:var(--accent);color:#fff;">Premium</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-name">Gare Premix</h3>
+            <p class="product-weight">500g · Festive Favourite</p>
+            <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.6rem;">Savory lentil fritters — a festive and everyday South Indian classic.</p>
+            <div class="product-price">₹280 <small>/ 500g</small></div>
+            <div class="product-card-footer">
+              <a href="product-gare.html" class="btn btn-outline btn-sm">View Details</a>
+              <button class="btn btn-primary btn-sm" data-add-product="gare">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust row -->
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-top:3.5rem;padding:2rem;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);">
+        <div style="text-align:center;min-width:120px;">
+          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🔖</div>
+          <strong style="font-size:0.82rem;">FSSAI Licensed</strong>
+          <p style="font-size:0.75rem;margin:0;">No. 1362401200876</p>
+        </div>
+        <div style="text-align:center;min-width:120px;">
+          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🌿</div>
+          <strong style="font-size:0.82rem;">No Preservatives</strong>
+          <p style="font-size:0.75rem;margin:0;">100% Natural</p>
+        </div>
+        <div style="text-align:center;min-width:120px;">
+          <div style="font-size:1.8rem;margin-bottom:0.4rem;">🚚</div>
+          <strong style="font-size:0.82rem;">Pan-India Delivery</strong>
+          <p style="font-size:0.75rem;margin:0;">Free above ₹499</p>
+        </div>
+        <div style="text-align:center;min-width:120px;">
+          <div style="font-size:1.8rem;margin-bottom:0.4rem;">💬</div>
+          <strong style="font-size:0.82rem;">WhatsApp Support</strong>
+          <p style="font-size:0.75rem;margin:0;">+91 77022 60614</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
